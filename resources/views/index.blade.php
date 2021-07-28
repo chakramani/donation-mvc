@@ -1,19 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
-<!-- @if(!empty('message'))
-    <div class="alert alert-success"> {{ 'message11'}}</div>
-  @endif -->
-
-  @if ($message = Session::get('success'))
-<div class="alert alert-warning alert-block mt-4">
-    <button type="button" class="close" data-dismiss="alert">×</button>
-    <strong>{{ $message }}</strong>
-</div>
-@endif
-
-
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
@@ -28,8 +15,8 @@
 
 
 
-<div class="alert alert-warning mt-4" role="alert">
-    {{__('msg.Welcome to UX Qode!')}}
+<div class="alert alert-warning mt-5" role="alert">
+    Welcome to UX Qode!
 </div>
 
 
@@ -43,8 +30,8 @@
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active" style="z-index: -1; width: 100%;">
-                <img src="https://source.unsplash.com/1600x800/?donation,help" class="d-block w-100" alt="..."
-                    width="1080" height="680">
+                <center><img src="{{asset('/storage/photos/1.jpg')}}" class="d-block w-90" alt="..." width="1080"
+                        height="680"></center>
                 <div class="carousel-caption d-none d-md-block">
                     <h5>First slide label</h5>
                     <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
@@ -54,8 +41,8 @@
                 </div>
             </div>
             <div class="carousel-item" style="z-index: -1; width: 100%;">
-                <img src="https://source.unsplash.com/1400x800/?donation,poor" class="d-block w-100" alt="..."
-                    width="1080" height="680">
+                <center><img src="{{asset('/storage/photos/2.jpg')}}" class="d-block w-75" alt="..." width="1080"
+                        height="680"></center>
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Second slide label</h5>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -65,8 +52,10 @@
                 </div>
             </div>
             <div class="carousel-item" style="z-index: -1; width: 100%;">
-                <img src="https://source.unsplash.com/1600x800/?donation,needy" class="d-block w-100" alt="..."
-                    width="1080" height="680">
+                <!-- <img src="https://source.unsplash.com/1600x800/?donation,needy" class="d-block w-100" alt="..."
+                    width="1080" height="680"> -->
+                <center><img src="{{asset('/storage/photos/3.jpg')}}" class="d-block w-75" alt="..." width="1080"
+                        height="680"></center>
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Third slide label</h5>
                     <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
@@ -133,7 +122,7 @@
                             of
                             thought
                             into the happiness that you are able to give.</em></p>
-                    <center><input type="submit" value="{{__('msg.Donate')}}" class="btn btn-primary"
+                    <center><input type="submit" value="Donate" class="btn btn-primary"
                             formaction="{{ url('/patient_list') }}">
                     </center>
                 </div>
@@ -147,15 +136,19 @@
             <div class="card-body ">
                 <h5 class="card-title text-success"><u>Donate</u></h5>
                 <ul class="list-unstyled">
-                    <li><samp class="card-text"> {{__('Save')}}</samp></li>
-                    <li><samp class="card-text"> {{__('The')}}</samp></li>
-                    <li><samp class="card-text"> {{__('World')}}</samp></li>
+                    <li><samp class="card-text"> Save</samp></li>
+                    <li><samp class="card-text"> The</samp></li>
+                    <li><samp class="card-text"> World</samp></li>
                 </ul>
-                <center><input type="submit" value="{{__('msg.Donate')}}" class="btn btn-danger" formaction="{{ url('/donate_all') }}"></center>
+                <input type="submit" value="Donate" class="btn btn-danger" formaction="{{ url('/donate_all') }}">
             </div>
         </form>
     </div>
 </div>
+
+
+
+
 
 
 <div class="container mt-5">
@@ -165,12 +158,11 @@
         <!-- <input type="submit" class="btn btn-primary btn-lg btn-block" value="Donor List" formaction="{{url('/donor')}}">
         <input type="submit" class="btn btn-secondary btn-lg btn-block" value="Patient List"
             formaction="{{url('/patient_list')}}"> -->
-        <input type="submit" class="btn btn-secondary btn-lg btn-block" value="{{__('msg.Patient Register')}}"
+        <input type="submit" class="btn btn-secondary btn-lg btn-block" value="Patient Register"
             formaction="{{url('/patient_register')}}">
 
     </form>
 </div>
-
 
 
 <div class="container marketing">
@@ -181,7 +173,8 @@
                 <img src="{{asset('/storage/photos/airport.jpg')}}" alt="{{asset('/storage/photos/airport.jpg')}}"
                     class="bd-placeholder-img rounded-circle" width="140" height="140">
                 <h2>CM</h2>
-                <p>Some representative placeholder content for the three columns of text below the carousel. This is the
+                <p>Some representative placeholder content for the three columns of text below the carousel. This is
+                    the
                     first
                     column.</p>
                 <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
@@ -190,7 +183,8 @@
                 <img src="{{asset('/storage/photos/vespa.jpg')}}" alt="{{asset('/storage/photos/vespa.jpg')}}"
                     class="bd-placeholder-img rounded-circle" width="140" height="140">
                 <h2>Vespa</h2>
-                <p>Another exciting bit of representative placeholder content. This time, we've moved on to the second
+                <p>Another exciting bit of representative placeholder content. This time, we've moved on to the
+                    second
                     column.
                 </p>
                 <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
@@ -205,6 +199,9 @@
         </div>
     </center>
 </div>
+
+
+
 
 
 
@@ -224,51 +221,10 @@ img.side_image1 {
     OBJECT-FIT: contain;
 }
 
+
 .card.mt-3.col-2 {
     height: 204px;
-    width: 161px;
+    width: 129px;
 }
 </STYle>
-
-
-
-
-
-
-
-
-
-
-
-<!-- <div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-
-                <div class="card-body">
-                    @if (session('status'))
-                    <div class="alert alert-success" role="alert">
-                        {{ session('status') }}
-                    </div>
-                    @endif
-                    {{ __('You are logged in!') }}
-                </div>
-            </div>
-
-            <br>
-
-            <form method="get">
-                <input type="submit" class="btn btn-primary btn-lg btn-block" value="Donor List"
-                    formaction="{{url('/donor')}}">
-                <input type="submit" class="btn btn-secondary btn-lg btn-block" value="Patient List"
-                    formaction="{{url('/patient_list')}}">
-                <input type="submit" class="btn btn-success btn-lg btn-block" value="Patient Register"
-                    formaction="{{url('/patient_register')}}">
-
-            </form>
-
-
-        </div>
-    </div>
-</div> -->
 @endsection
